@@ -10,31 +10,10 @@ A Streamlit dashboard that transforms raw e-commerce business and marketing data
 
 ## Setup & Usage
 
-### File Structure
-```
-assignment_1/
-├── config.py
-├── dashboard_tabs.py
-├── data_loader.py
-├── insights.py
-├── main.py
-├── metrics.py
-├── visualizations.py
-└── dataset/
-    ├── business.csv
-    ├── Facebook.csv
-    ├── Google.csv
-    └── TikTok.csv
-```
-
-### Required Columns
-**Business**: `date`, `no_of_orders`, `new_customers`, `total_revenue`, `gross_profit`, `COGS`
-**Marketing**: `date`, `tactic`, `campaign`, `impression`, `clicks`, `spend`, `attributed_revenue`
-
 ### Run Dashboard
 ```bash
 cd assignment_1
-pip install requirements.txt
+pip install -r requirements.txt
 streamlit run main.py
 ```
 
