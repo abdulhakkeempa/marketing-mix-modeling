@@ -1,6 +1,6 @@
 ## Marketing Mix Modeling with Mediation
 
-This repository contains code and analysis for Marketing Mix Modeling (MMM) on a 2-year weekly dataset. We explain Revenue as a function of marketing spend, direct-response levers, pricing, and seasonality, while respecting the Google-as-mediator assumption.
+This repository contains code and analysis for Marketing Mix Modeling (MMM) on a 2-year weekly dataset. I use Revenue as a function of marketing spend, direct-response levers, pricing, and seasonality, while respecting the Google-as-mediator assumption.
 
 ### Data Preprocessing
 - Handled weekly data (104 weeks).
