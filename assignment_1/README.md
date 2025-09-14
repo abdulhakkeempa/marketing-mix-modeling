@@ -1,116 +1,86 @@
 # E-commerce Marketing Analytics Dashboard
 
-A modular and well-organized Streamlit dashboard for analyzing e-commerce marketing performance.
+A Streamlit dashboard that transforms raw e-commerce business and marketing data into actionable insights for decision-makers.
 
-## Project Structure
+### My Solution Approach
+1. **Join & aggregate** datasets by date for unified view
+2. **Derive meaningful metrics** from raw data columns
+3. **Focus on business impact** rather than technical metrics
+4. **Provide tactical recommendations** based on data patterns
 
+## Setup & Usage
+
+### File Structure
 ```
 assignment_1/
-├── main.py                 # Main dashboard application
-├── config.py              # Configuration settings and constants
-├── data_loader.py          # Data loading and preparation functions
-├── metrics.py              # Metrics calculation functions
-├── visualizations.py       # Chart and plot creation functions
-├── dashboard_tabs.py       # Individual tab content rendering
-├── insights.py             # Insights and recommendations generation
-├── __init__.py            # Package initialization
-├── README.md              # This file
-├── requirements.py         # Dependencies (legacy)
-├── ecommerce_dashboard.py  # Original monolithic version
-└── dataset/               # Data files
+├── config.py
+├── dashboard_tabs.py
+├── data_loader.py
+├── insights.py
+├── main.py
+├── metrics.py
+├── visualizations.py
+└── dataset/
     ├── business.csv
     ├── Facebook.csv
     ├── Google.csv
     └── TikTok.csv
 ```
 
-## Module Descriptions
+### Required Columns
+**Business**: `date`, `no_of_orders`, `new_customers`, `total_revenue`, `gross_profit`, `COGS`
+**Marketing**: `date`, `tactic`, `campaign`, `impression`, `clicks`, `spend`, `attributed_revenue`
 
-### `main.py`
-- Main entry point for the dashboard
-- Orchestrates all components
-- Handles page setup and layout
-- Coordinates data flow between modules
-
-### `config.py`
-- Configuration settings and constants
-- Page configuration for Streamlit
-- CSS styles
-- Color schemes
-- Data file mappings
-- Column name mappings
-
-### `data_loader.py`
-- Data loading from CSV files
-- Data cleaning and preparation
-- Column renaming and standardization
-- Data validation and error handling
-
-### `metrics.py`
-- Business metrics calculations
-- Marketing performance metrics
-- KPI computations
-- Data aggregation functions
-- Metrics formatting utilities
-
-### `visualizations.py`
-- Chart and plot creation using Plotly
-- Reusable visualization functions
-- Chart styling and configuration
-- Interactive plot generation
-
-### `dashboard_tabs.py`
-- Content rendering for each dashboard tab
-- Tab-specific layout and components
-- Data table formatting
-- Tab coordination
-
-### `insights.py`
-- Automated insights generation
-- Recommendations based on data analysis
-- Advanced analytics functions
-- Performance trend analysis
-
-## Running the Dashboard
-
-To run the modular dashboard:
-
+### Run Dashboard
 ```bash
 cd assignment_1
+pip install requirements.txt
 streamlit run main.py
 ```
 
-## Benefits of Modular Structure
+## Key Derivations & Metrics
 
-1. **Maintainability**: Each module has a single responsibility
-2. **Reusability**: Functions can be reused across different parts
-3. **Testing**: Each module can be tested independently
-4. **Collaboration**: Multiple developers can work on different modules
-5. **Scalability**: Easy to add new features and tabs
-6. **Debugging**: Issues can be isolated to specific modules
+### From Raw Data to Strategic Metrics
 
-## Adding New Features
+| **Raw Columns** | **Derived Metric** | **Business Value** |
+|---|---|---|
+| `attributed_revenue ÷ spend` | **ROAS** | Channel efficiency & budget allocation |
+| `clicks ÷ impressions` | **CTR** | Creative performance & audience targeting |
+| `spend ÷ clicks` | **CPC** | Cost efficiency by channel |
+| `total_revenue ÷ no_of_orders` | **AOV** | Customer value optimization |
+| `gross_profit ÷ total_revenue` | **Gross Margin** | Profitability trends |
+| `new_customers ÷ no_of_orders` | **New Customer Rate** | Acquisition efficiency |
 
-### Adding a New Tab
-1. Create the tab rendering function in `dashboard_tabs.py`
-2. Add any required visualizations to `visualizations.py`
-3. Add the tab to the main tabs list in `main.py`
+### Cross-Dataset Integration
+- **Business + Marketing Join**: Daily performance unified view
+- **Channel Aggregation**: Multi-platform marketing performance
+- **Time-based Analysis**: Trend identification and growth metrics
 
-### Adding New Metrics
-1. Add calculation functions to `metrics.py`
-2. Update visualizations if needed in `visualizations.py`
-3. Include in relevant tabs in `dashboard_tabs.py`
+## 📈 Dashboard Structure & Relevance
 
-### Adding New Insights
-1. Add analysis functions to `insights.py`
-2. Update the insights rendering in `insights.py`
+### 1. Executive Summary
+**Relevance**: C-level needs high-level business health at a glance
+- **Metrics**: Total Revenue, Marketing ROAS, AOV, Gross Margin
+- **Value**: Quick decision support for budget and strategy
 
-## Data Requirements
+### 2. Performance Trends
+**Relevance**: Identify patterns between marketing activity and business results
+- **Visualization**: Multi-panel time series (Revenue vs Spend, Orders, Customer Acquisition)
+- **Insight**: Marketing impact correlation with business performance
 
-The dashboard expects CSV files in the `dataset/` folder with the following structure:
+### 3. Channel Analysis
+**Relevance**: Optimize marketing budget allocation across platforms
+- **Key Views**: ROAS by channel, spend allocation, performance comparison
+- **Action**: Identify best-performing channels for budget reallocation
 
-### business.csv
-- date, # of orders, # of new orders, new customers, total revenue, gross profit, COGS
+### 4. Profitability Analysis
+**Relevance**: Understand true marketing ROI beyond just revenue
+- **Analysis**: Gross margin trends, marketing efficiency scatter plots
+- **Decision Support**: ROI optimization and cost management
 
-### Facebook.csv, Google.csv, TikTok.csv
-- date, tactic, state, campaign, impression, clicks, spend, attributed revenue
+### 5. Campaign Details
+**Relevance**: Tactical campaign management and optimization
+- **Features**: Top/bottom performers, tactic-level analysis
+- **Actionable**: Immediate campaign pause/scale decisions
+
+
